@@ -50,6 +50,8 @@ $missing_count = 0;
 
 // 3. Enter your 4 functions below this sentence. Put a blank line between each of the functions.
 
+//Check form fields contain data
+
 function check_submitted($field_name, $field_type, &$missing_count) {
 
     // Check for undefined variable (not submitted) on all but checkbox
@@ -76,6 +78,57 @@ function check_submitted($field_name, $field_type, &$missing_count) {
         } // end if($_POST...)
 
     } // end if($field_type...)
+
+} // end function
+
+// Display link to form page and hide the remainder of the current page if data was missing from the form
+
+function count_errors($missing_count) {
+
+    if($missing_count > 0) {
+        echo "<br />Please <a href='guestbook_add.php'>Go Back</a> and fill in the missing data.<br /><br /></div></body></html>";
+        exit;
+
+    }
+
+}
+
+//Sanitize fields
+
+function sanitize($field_name, $field_type, &$field_value) {
+
+    if($field_type == "text" || $field_type == "textarea") {
+
+        $_POST[$field_name] = trim($field_value);
+        $_POST[$field_name] = stripslashes(strip_tags($field_value)); // strip html tags and back slashes
+        $_POST[$field_name] = str_replace("/","",$field_value); // removes forward slashes
+        $_POST[$field_name] = addslashes($field_value); // escapes quote marks so they will work in SQL statements
+        echo "The field <b>" . $field_name . "</b> has been sanitized.<br>";
+
+    }
+
+}
+
+//Displayed entered data
+
+function display_data($field_name, $field_type, &$field_value) {
+
+    if($field_type == "checkbox") {
+
+        if($field_value != "") {
+
+            echo $field_name . ": <strong>" . $field_value . "</strong>";
+        }
+
+        else {
+            echo $field_name . ": <strong>no</strong>";
+        }
+
+    } // end field type checkbox
+
+    else {
+        echo $field_name . ": <strong>" . $field_value . "</strong><br /><br />";
+    } // end else for field type checkbox
 
 } // end function
 
@@ -145,7 +198,7 @@ check_submitted("mail", "checkbox", $missing_count);
 
 // 4a. Enter your function call for count_errors below this comment. There should be only one line of code.
 
-
+count_errors($missing_count);
 
 // Below this point is your our old code for checking for missing data.
 // Notice that you had more code, and it did less -- it didn't track how many fields were missing.
@@ -156,66 +209,34 @@ check_submitted("mail", "checkbox", $missing_count);
 // 5. Enter your sanitize() function calls below this comment. There should be a call for every text box or text area
 //    box on your form. Put a blank line between each function call.
 
+sanitize("name", "text", $_POST["name"]);
 
+sanitize("email", "text", $_POST["email"]);
 
-
-
+sanitize("comment", "textarea", $_POST["comment"]);
 
 // Below this point is your our old code for checking for sanitizing the data.
 // Notice that you had a lot more code, and it did less -- we didn't escape quote marks in the previous version.
 // Once you create the functions and call them, please delete the old code in this section.
-
-/*
-$name = trim($_POST["name"]);
-$name = stripslashes(strip_tags($name)); // strip html tags and back slashes
-$name = str_replace("/","",$name); // removes forward slashes 
-$name = addslashes($name); // escapes quote marks so they will work in SQL statements
-
-$email = trim($_POST["email"]);
-$email = stripslashes(strip_tags($email)); // strip html tags and back slashes
-$email = str_replace("/","",$email); // removes forward slashes 
-$email = addslashes($email); // escapes quote marks so they will work in SQL statements 
-
-$comment = trim($_POST["comment"]);
-$comment = stripslashes(strip_tags($comment)); // strip html tags and back slashes
-$comment = str_replace("/","",$comment); // removes forward slashes 
-$comment = addslashes($comment); // escapes quote marks so they will work in SQL statements
-*/
 
 // -- DISPLAY OUTPUT
 
 // 6. Enter your display_data() function calls below this comment. There should be a call for each of the fields in your
 //    form. Put a blank line between each function call.
 
-
-
-
-
-
-
-// Below this point is your our old code for displaying the data.
-// Once you create the functions and call them, please delete the old code in this section.
-
-/*
 echo "<h3><i>You submitted the following information:</i></h3>";
 echo "<div id='formData'>";
 
-echo "Name: <b>" . $name . "</b>"; 
-echo "<br><br>";     echo "Email: <b> " . $email . "</b>"; 
-echo "<br><br>";     echo "Comment: <b> " . $comment . "</b>"; 
+display_data("name", "text", $_POST["name"]);
 
-echo "<br><br>";
+display_data("email", "text", $_POST["email"]);
 
-echo "Mailing list: "; 
+display_data("comment", "textarea", $_POST["comment"]);
 
-if(isset($_POST["mail"])) { 
-     echo "<b>" . $_POST["mail"] . "</b>";
-} 
-else { 
-     echo "<b>" . "no" . "</b>"; 
-}
+display_data("mail", "checkbox", $_POST["mail"]);
 
-*/
+// Below this point is your our old code for displaying the data.
+// Once you create the functions and call them, please delete the old code in this section.
 
 ?>
 
