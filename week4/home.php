@@ -9,9 +9,9 @@
 // 1. Update the Header information below (all 3 lines).
 
 /*
-File Name: XXXXX.XXX
-Date: XX/XX/XX
-Programmer: XXX XXX
+File Name: home.php
+Date: 4/15/16
+Programmer: Josh Boyan
 */
 
 // ==========================================================
@@ -21,7 +21,7 @@ Programmer: XXX XXX
       COPY the new $link_2_page and link_2_text variables from the guestbook_add.php file into the space below, under the 
       $link_1_page and $link_1_text variables. */
  
-$programmer_name = "Ron Bekey";
+$programmer_name = "Josh Boyan";
 $home_image_name = "cat.jpg";
 $image_path = "images";
 $styles_path = "styles";
@@ -29,7 +29,8 @@ $styles_page = "home.css";
 
 $link_1_page = "home.php";
 $link_1_text = "Home";
-
+$link_2_page = "guestbook_add.php";
+$link_2_text = "Guestbook: Add";
 
 
 $heading = "CAS 225: PHP and MySQL for Designers";
@@ -70,8 +71,8 @@ NAVIGATION BAR
 
 <!-- 3. COPY the line for the second link from your guestbook_add.php page. This line must use PHP for credit. -->
 
-<a href="<?php echo $link_1_page; ?>"><?php echo $link_1_text; ?></a> | 
-
+<a href="<?php echo $link_1_page; ?>"><?php echo $link_1_text; ?></a> |
+    <a href="<?php echo $link_2_page; ?>"><?php echo $link_2_text; ?></a>
 
 </p>
 
