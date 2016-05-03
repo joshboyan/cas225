@@ -34,66 +34,27 @@ I HAVE A SPECIFIC SERIES OF STEPS I WOULD LIKE YOU TO FOLLOW.
 // 1. Update the Header information below (all 3 lines).
 
 /*
-File Name: XXXXX.XXX
-Date: XX/XX/XX
-Programmer: XXX XXX
+File Name: guestbook_add.php
+Date: 5/2/16
+Programmer: Josh Boyan
 */
 
 // ==========================================================
 
 // VARIABLES
 
-$styles_path = "styles";
+include_once  "includes/php_header.php";
+
 $styles_page = "contact.css";
-
-$link_1_page = "home.php";
-$link_1_text = "Home";
-$link_2_page = "guestbook_add.php";
-$link_2_text = "Guestbook: Add";
-
 $heading = "Add Entry to Guest Book";
-
-/* ====================================== */
 
 ?>
 
-<!DOCTYPE html>
+<?php
 
-<html>
+include_once  "includes/html_header.php";
 
-<head>
-
-<meta charset = "UTF-8">
-
-<title><?php echo $heading; ?></title>
-
-<link rel = "stylesheet" href = "<?php echo $styles_path . '/' . $styles_page; ?>" />
-
-</head>
-
-<body>
-
-<div class = "shade">
-
-<br />
-
-<!-- We will code the line below later in the class, when we learn how to do logins. -->
-
-Logged in as: <strong>(no login code yet)</strong>
-
-<p>
-
-<!-- ======================================
-NAVIGATION BAR
--->
-
-<a href="<?php echo $link_1_page; ?>"><?php echo $link_1_text; ?></a> |
-<a href="<?php echo $link_2_page; ?>"><?php echo $link_2_text; ?></a>
-
-</p>
-
-</div>
-
+?>
 <!-- ====================================== -->
 <!-- HEADING -->
 
@@ -154,4 +115,8 @@ will need to use on our "action" page. The names are case-sensitive. -->
 <!-- This JavaScript puts the cursor in the first element on the form -->
 <script>document.getElementById('form1').elements[0].focus();</script>
 
-</body>
+<?php
+
+include_once "includes/footer.php";
+
+?>

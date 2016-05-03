@@ -21,141 +21,33 @@ I HAVE A SPECIFIC SERIES OF STEPS I WOULD LIKE YOU TO FOLLOW.
 // 1. Update the Header information below (all 3 lines).
 
 /*
-File Name: XXXXX.XXX
-Date: XX/XX/XX
-Programmer: XXX XXX
+File Name: guestbook_add_action.php
+Date: 5/2/16
+Programmer: Josh Boyan
 */
 
 // ==========================================================
 // VARIABLES
 
-$styles_path = "styles";
-$styles_page = "home.css";
-$styles_2_page = "contact.css";
-$link_1_page = "home.php";
-$link_1_text = "Home";
-$link_2_page = "guestbook_add.php";
-$link_2_text = "Guestbook: Add";
+include_once  "includes/php_header.php";
 
+$styles_page = "home.css";
 $heading = "Contact Us";
 $missing_count = 0;
 
 // ==========================================================
 // FUNCTIONS
 
-function check_submitted($field_name, $field_type, &$missing_count) {
-
-     // Check for undefined variable (not submitted) on all but checkbox
-     if(!isset($_POST[$field_name])) {
-
-          $_POST[$field_name]=""; // set a default value if no value was submitted, to prevent errors in later code
-
-          if($field_type <> "checkbox") { // checkboxes usually don't have to be checked -- they are usually optional
-               echo "Missing data for <strong>" . $field_name . "</strong>.<br />";
-               $missing_count++;
-          }
-
-     }
-
-     // For text, textarea, and select check for present but empty
-     // Note use of elseif instead of if, which means only one of the if blocks will run but not both
-     elseif($field_type == "text" || $field_type == "textarea" || $field_type == "select") {
-
-          if(trim($_POST[$field_name]) == "") {
-
-               echo "Missing data for <strong>" . $field_name . "</strong>.<br />";
-               $missing_count++;
-
-          } // end if($_POST...)
-
-     } // end if($field_type...)
-
-} // end function
-
-
-function count_errors($missing_count) {
-
-     if($missing_count > 0) {
-          echo "<br />Please <a href='guestbook_add.php'>Go Back</a> and fill in the missing data.<br /><br /></div></body></html>";
-          exit;
-
-     }
-
-}
-
-function sanitize($field_name, $field_type, &$field_value) {
-
-     if($field_type == "text" || $field_type == "textarea") {
-
-          $_POST[$field_name] = trim($field_value);
-          $_POST[$field_name] = stripslashes(strip_tags($field_value)); // strip html tags and back slashes
-          $_POST[$field_name] = str_replace("/","",$field_value); // removes forward slashes
-          $_POST[$field_name] = addslashes($field_value); // escapes quote marks so they will work in SQL statements
-          echo "The field <b>" . $field_name . "</b> has been sanitized.<br>";
-
-     }
-
-}
-
-function display_data($field_name, $field_type, $field_value) {
-
-     if($field_type == "checkbox") {
-
-          if($field_value != "") {
-
-               echo $field_name . ": <strong>" . $field_value . "</strong>";
-          }
-
-          else {
-               echo $field_name . ": <strong>no</strong>";
-          }
-
-     } // end field type checkbox
-
-     else {
-          echo $field_name . ": <strong>" . $field_value . "</strong><br /><br />";
-     } // end else for field type checkbox
-
-} // end function
+include_once  "includes/cas225_functions.php";
 
 // =======================================
 // HTML HEADER ?>
 
-<!DOCTYPE html>
+<?php
 
-<html>
+include_once "includes/html_header.php";
 
-<head>
-
-<meta charset = "UTF-8">
-
-<title><?php echo $heading; ?></title>
-
-<link rel = "stylesheet" href = "<?php echo $styles_path . '/' . $styles_page; ?>" />
-<link rel = "stylesheet" href = "<?php echo $styles_path . '/' . $styles_2_page; ?>" />
-
-</head>
-
-<body>
-
-<div class = "shade">
-
-<br />
-
-<!-- We will code the line below later in the class, when we learn how to do logins. -->
-
-Logged in as: <b>(no login code yet)</b>
-
-<p>
-
-<!-- NAVIGATION BAR -->
-
-<a href="<?php echo $link_1_page; ?>"><?php echo $link_1_text; ?></a> |
-<a href="<?php echo $link_2_page; ?>"><?php echo $link_2_text; ?></a>
-
-</p>
-
-</div>
+?>
 
 <!-- ====================================== -->
 
@@ -222,6 +114,8 @@ echo "</div>"; // close #formData
 <!-- ===================================================== -->
 <!-- FOOTER -->
 
-</body>
+<?php
 
-</html>
+include_once "includes/footer.php";
+
+?>
