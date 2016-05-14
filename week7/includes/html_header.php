@@ -20,9 +20,9 @@ I HAVE A SPECIFIC SERIES OF STEPS I WOULD LIKE YOU TO FOLLOW.
 // 1. Update the Header information below (all 3 lines).
 
 /*
-File Name: XXXXX.XXX
-Date: XX/XX/XX
-Programmer: XXX XXX
+File Name: html_header.php
+Date: 5/2/16
+Programmer: Josh Boyan
 */
 
 ?>
@@ -54,10 +54,13 @@ Logged in as: <b>(no login code yet)</b>
 <!-- 2. COPY the line below this comment to make 3 more links, then EDIT the new lines to use link_2, link_3 and
      link_4. BE CAREFUL! The code needs to be updated in 2 places in each line. -->
 
-<a href="<?php echo $link_1_page; ?>"><?php echo $link_1_text; ?></a> | 
+<a href="<?php echo $link_1_page; ?>"><?php echo $link_1_text; ?></a> |
 
+<a href="<?php echo $link_2_page; ?>"><?php echo $link_2_text; ?></a> |
 
+<a href="<?php echo $link_3_page; ?>"><?php echo $link_3_text; ?></a> |
 
+<a href="<?php echo $link_4_page; ?>"><?php echo $link_4_text; ?></a>
 
 </p>
 

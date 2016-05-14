@@ -20,9 +20,9 @@ I HAVE A SPECIFIC SERIES OF STEPS I WOULD LIKE YOU TO FOLLOW.
 // 1. Update the Header information below (all 3 lines).
 
 /*
-File Name: XXXXX.XXX
-Date: XX/XX/XX
-Programmer: XXX XXX
+File Name: php_header.php
+Date: 5/14/16
+Programmer: Josh Boyan
 */
 
 $image_path = "images";
@@ -41,6 +41,15 @@ link_4   guestbook_delete.php    Guestbook: Delete
 
 $link_1_page = "home.php";
 $link_1_text = "Home";
+
+$link_2_page = "guestbook_view.php";
+$link_2_text = "Guestbook: View";
+
+$link_3_page = "guestbook_add.php";
+$link_3_text = "Guestbook: Add";
+
+$link_4_page = "guestbook_delete.php";
+$link_4_text = "Guestbook: Delete";
 
 
 

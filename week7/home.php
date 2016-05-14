@@ -20,9 +20,9 @@ I HAVE A SPECIFIC SERIES OF STEPS I WOULD LIKE YOU TO FOLLOW.
 // 1. Update the Header information below (all 3 lines).
 
 /*
-File Name: XXXXX.XXX
-Date: XX/XX/XX
-Programmer: XXX XXX
+File Name: home.php
+Date: 5/2/16
+Programmer: Josh Boayn
 */
 
 // ==========================================================
@@ -32,8 +32,8 @@ include_once "includes/php_header.php";
 
 // 2. Change $programmer_name to your name and $home_image_name to the name of your image.
 
-$programmer_name = "Ron Bekey";
-$home_image_name = "car.jpg";
+$programmer_name = "Josh Boyan";
+$home_image_name = "cat.jpg";
 $heading = "CAS 225: PHP and MySQL for Designers";
 
 // ======================================= 

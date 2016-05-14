@@ -20,9 +20,9 @@ I HAVE A SPECIFIC SERIES OF STEPS I WOULD LIKE YOU TO FOLLOW.
 // 1. Update the Header information below (all 3 lines).
 
 /*
-File Name: XXXXX.XXX
-Date: XX/XX/XX
-Programmer: XXX XXX
+File Name: connection.php
+Date: 5/14/16
+Programmer: Josh Boyan
 */
 
 // Define constants for database connections
@@ -30,10 +30,10 @@ Programmer: XXX XXX
 /* 2. Define the constants DB_DSN, DB_USER and DB_PASS, and assign them the values for this class. 
 HINT: See Part 1, Step 1: Create a Database connection. There will be 4 lines of code, including the comment at the top. */
 
-
-
-
-
+//Define constants
+define("DB_DSN", "mysql:host=localhost;dbname=cas225;charset=utf8");
+define("DB_USER", "root");
+define("DB_PASS", "");
 
 // Create a database connection
 
@@ -41,10 +41,17 @@ HINT: See Part 1, Step 1: Create a Database connection. There will be 4 lines of
 HINT: See Part 1, Step 1: Create a Database connection for the code I want you to use. There will be 12 lines of code, including 4 comment lines and the 
 curly braces. */
 
-
-
-
-
-
+// Attempt to create a connection
+try {
+//Create a database connection
+$connection = new PDO(DB_DSN,DB_USER,DB_PASS);
+// Turn on display of errors (exceptions) so we can see problems if they occur
+$connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+// Display message on successful connection
+echo "1. Database connection succeeded!";
+}
+catch (PDOException $e) {
+    die("1. Database connection failed: " . $e->getMessage());
+}
 
 ?>
