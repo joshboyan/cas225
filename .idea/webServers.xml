@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="fd7d5ece-e9e7-4f86-a802-a4acb35119e0" name="ftpes://oak.pcc.edu" url="http://oak.pcc.edu">
+        <fileTransfer host="oak.pcc.edu" port="30" username="joshua.boyan">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="30" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
