@@ -22,9 +22,9 @@ I HAVE A SPECIFIC SERIES OF STEPS I WOULD LIKE YOU TO FOLLOW.
 // 1. Update the Header information below (all 3 lines).
 
 /*
-File Name: XXXXX.XXX
-Date: XX/XX/XX
-Programmer: XXX XXX
+File Name: guestbook_delete_action.php
+Date: 5/14/16
+Programmer: Josh Boyan
 */
 
 // ==========================================================
@@ -34,7 +34,7 @@ include_once "includes/php_header.php";
 
 // 2. Change $programmer_name to your name.
 
-$programmer_name = "Ron Bekey";
+$programmer_name = "Josh Boyan";
 $heading = "Guest Book Delete Action Page";
 
 // ==========================================================
@@ -74,8 +74,8 @@ echo "<h1>" . $heading . "</h1>";
 //    Array ( [id] => __ [Submit] => Submit ) 
 //    Put comment tags // in front of the 2 lines below when you have the rest of the page working.
 
-print_r($_POST);
-echo "<br><br>";
+//print_r($_POST);
+//echo "<br><br>";
 
 // 4. NOTICE the new line below. This is checking to see if this page was submitted to itself, or if we
 //    came from the guestbook_delete form. If the page was submitted to itself, the checkbox named confirm_delete
@@ -87,11 +87,13 @@ if(!isset($_POST["confirm_delete"])) {  // Run only if coming from the current p
 //    HINT: This is 4 lines of code (including the ending curly brace). 
 //          It is the same as in the guestbook_add_action file, Step 4.
 
+    foreach ($form_fields as $key => $value) { // Loop through form fields. Key is the name of the field, value is type of field
 
+        check_submitted($key, $value, $missing_count);
 
+        sanitize($key, $value, $_POST[$key]); // ESPECIALLY IMPORTANT NOW THAT WE ARE INSERTING INTO A DATABASE
+    }
 
-
-	
     // exit if missing data in any but checkboxes
 	
     if($missing_count > 0) {
@@ -106,7 +108,7 @@ if(!isset($_POST["confirm_delete"])) {  // Run only if coming from the current p
 	
     // 6. Insert an include for connection.php, using include_once.
 
-
+include_once "includes/connection.php";
 
     // SQL STATEMENT: Find record that is about to be deleted
 	
@@ -115,7 +117,9 @@ if(!isset($_POST["confirm_delete"])) {  // Run only if coming from the current p
     //    BE CAREFUL! If $id is a string, it will have single quotes around it. If it is a number, it will *not* have quotes.
     //    You will need to look at your data and determine if the ID is a string or a number.
 	
-
+$sql = "SELECT *"
+    . " FROM guestbook"
+    . " WHERE guestbook.id=$id;";
 
 
 		
@@ -130,12 +134,14 @@ if(!isset($_POST["confirm_delete"])) {  // Run only if coming from the current p
     //    if the query is successful, or the generated error message if it is not.
     //    HINT: See 'Step 2, d. Running the Query' in Part 1 for the code I would like you to use.
     //    There should be 8 lines of code, including the comment at the top and the curly braces.
-	
 
-
-
-
-
+    try {
+        $result = $connection->query($sql);
+        echo "3. Query succeeded! " . $result->rowCount() . " rows returned.<br>";
+    }
+    catch (PDOException $e) {
+        die("3. Query failed! " . $e->getMessage());
+    }
 
 // 8a. RUN your page, and be sure that you see the message 3. Query succeeded! 1 rows returned.
 	
@@ -150,26 +156,26 @@ while($rows = $result->fetch(PDO::FETCH_ASSOC)) {
 	
          // 10. Assign the "username" element of the $rows array to $username.
 	
-
+        $username = $rows["username"];
 	
 	     // 11. Assign the "comment" element of the $rows array to $comment.
 	
-
+        $comment = $rows["comment"];
 
           } 
 	
      // WARN THE USER 
      
      // Temporary code to prevent errors while coding this page (comment this out // when your page works):
-     $x = "---";
+     //$x = "---";
 
      echo "<p style='color:red;'>You are about to delete the following data:</p>";
      
      // 12. Put the appropriate variables from steps 9-11 above into the statements below (replace $x with the appropriate variable).
 
-     echo "ID: " .  $x  . "<br />";
-     echo "Username: " .  $x  . "<br />";
-     echo "Comment: " .  $x  . "<br />";
+     echo "ID: " .  $id  . "<br />";
+     echo "Username: " .  $username  . "<br />";
+     echo "Comment: " .  $comment  . "<br />";
    
 
     
@@ -213,7 +219,7 @@ if ($_POST["confirm_delete"] == "Y") {
 	
 	// 15. Insert an include for connection.php, using include_once.
 	
-
+include_once "includes/connection.php";
 	
 	// ASSIGN SUBMITTED ID TO A VARIABLE FOR EASIER HANDLING
 	
@@ -227,10 +233,10 @@ if ($_POST["confirm_delete"] == "Y") {
 	Even though our query only deletes one record, putting a limit of 1 record here protects us from accidentally deleting all 
 	of our records if we make a mistake in the SQL. */
 	
-
-
-
-     
+$sql = "DELETE"
+    . " FROM guestbook"
+    . " WHERE guestbook.id=$id"
+    . " LIMIT 1;";
      		
 	// Display SQL for learning and trouble-shooting
 		
@@ -243,12 +249,14 @@ if ($_POST["confirm_delete"] == "Y") {
     //    if the query is successful, or the generated error message if it is not.
     //    HINT: See 'Step 2, d. Running the Query' in Part 1 for the code I would like you to use.
     //    There should be 8 lines of code, including the comment at the top and the curly braces.
-	   
 
-
-
-
-
+    try {
+        $result = $connection->query($sql);
+        echo "3. Query succeeded! The record was deleted.<br>";
+    }
+    catch (PDOException $e) {
+        die("3. Query failed! " . $e->getMessage());
+    }
 
     // 18. CHANGE The message in the 'try' block above 
     // from 3. Query succeeded! ... rows returned.<br> to 3. Query succeeded! The record was deleted.<br>

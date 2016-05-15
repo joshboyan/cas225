@@ -22,9 +22,9 @@ I HAVE A SPECIFIC SERIES OF STEPS I WOULD LIKE YOU TO FOLLOW.
 // 1. Update the Header information below (all 3 lines).
 
 /*
-File Name: XXXXX.XXX
-Date: XX/XX/XX
-Programmer: XXX XXX
+File Name: guestbook_add.php
+Date: 5/2/16
+Programmer: Josh Boyan
 */
 
 // ==========================================================
@@ -34,7 +34,7 @@ include_once "includes/php_header.php";
 
 // 2. Change $programmer_name to your name.
 
-$programmer_name = "Ron Bekey";
+$programmer_name = "Josh Boyan";
 $heading = "Add Entry to Guest Book";
 
 // ====================================== 
@@ -63,7 +63,7 @@ echo "<h1>" . $heading . "</h1>";
 
 // 3. Insert an include for connection.php, using include_once.
 
-
+include_once "includes/connection.php";
 
 // SQL STATEMENT
 
@@ -71,7 +71,9 @@ echo "<h1>" . $heading . "</h1>";
 results to $sql. HINTS: The code should be on 3 lines. See 'Step 2: Perform Database Query', 
 c, i. SELECT EXAMPLES  in Part 1 of this assignment for the format I would like you to use. */
 
-
+$sql = "SELECT users.username"
+    . " FROM users"
+    . " ORDER BY users.username;";
 
 
 
@@ -91,7 +93,13 @@ echo "<br>2. SQL: " . $sql . "<br>";
 //    HINT: See 'Step 2, d. Running the Query' in Part 1 for the code I would like you to use.
 //    There should be 8 lines of code, including the comment at the top and the curly braces.
 
-
+try {
+    $result = $connection->query($sql);
+    echo "3. Query succeeded! " . $result->rowCount() . " rows returned.<br>";
+}
+catch (PDOException $e) {
+    die("3. Query failed! " . $e->getMessage());
+}
 
 
 
@@ -117,17 +125,17 @@ echo "<br>2. SQL: " . $sql . "<br>";
 //   HINT: This is an "assignment statement". These are written in the format x=3, which we would read as "assign 3 to x".
 //         You can see examples of these statements in Part 1, Step 2: Dynamic Select Boxes, 6, g.
 
-
+$field_name = "username";
 
 // 8. Assign "users" to $table_name .
 
-
+$table_name = "users";
 
 // 9. Call the select_box function. Pass the following 3 variables: $field_name, $table_name and $result. Assign the
 //    returned value of the function to $list. 
 //  HINT: See Part 1, Step 2: Dynamic Select Boxes, 6, g. This should be only one line of code, starting with $list.
 
-
+$list = select_box($field_name, $table_name, $result);
 
 // 10. RUN your page. It should now run with no errors, and you should be able to select a name in the list box.
 

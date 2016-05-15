@@ -22,9 +22,9 @@ I HAVE A SPECIFIC SERIES OF STEPS I WOULD LIKE YOU TO FOLLOW.
 // 1. Update the Header information below (all 3 lines).
 
 /*
-File Name: XXXXX.XXX
-Date: XX/XX/XX
-Programmer: XXX XXX
+File Name: guestbook_delete.php
+Date: 5/14/16
+Programmer: Josh Boyan
 */
 
 // ==========================================================
@@ -34,7 +34,7 @@ include_once "includes/php_header.php";
 
 // 2. Change $programmer_name to your name.
 
-$programmer_name = "Ron Bekey";
+$programmer_name = "Josh Boyan";
 $heading = "Guestbook Delete Page";
 
 // ======================================= 
@@ -59,17 +59,17 @@ echo "<h1>" . $heading . "</h1>";
 
 // 3. Insert an include for connection.php, using include_once.
 
-
+include_once "includes/connection.php";
 
 // SQL STATEMENT
 
 /* 4. Create an SQL statement that selects all of the records from the guestbook table and orders the results by id. 
 Assign the results to $sql. HINT: This is the same SELECT query you used in the guestbook_view.php file. */
 
+$sql = "SELECT *"
+    . " FROM guestbook"
+    . " ORDER BY guestbook.id;";
 
-
-
-     
 // Display SQL for learning and trouble-shooting
      
 echo "<br>2. SQL: " . $sql . "<br>";
@@ -81,12 +81,14 @@ echo "<br>2. SQL: " . $sql . "<br>";
 //    if the query is successful, or the generated error message if it is not.
 //    HINT: See 'Step 2, d. Running the Query' in Part 1 for the code I would like you to use.
 //    There should be 8 lines of code, including the comment at the top and the curly braces.
-     
 
-
-
-
-
+try {
+    $result = $connection->query($sql);
+    echo "3. Query succeeded! The new record was added.<br>";
+}
+catch (PDOException $e) {
+    die("3. Query failed! " . $e->getMessage());
+}
 
 // ====================================== 
 // FORM TO SELECT A RECORD TO DELETE
@@ -98,7 +100,7 @@ echo "<br>2. SQL: " . $sql . "<br>";
 //    guestbook_add.php page.
 //    BE CAREFUL! The code below is inside of double quotes, so the code you add inside it must use single quotes.
 
-echo "<form id='form1' name='form1'>";
+echo "<form id='form1' name='form1' method='post' action='guestbook_delete_action.php'>";
 
 echo "<table class='viewTable shade'>";
 echo "<tr class='addRecord'>";
@@ -114,21 +116,21 @@ echo "<td class='col1'>";
 // HINT: For a reminder on how assignment statements work, see my hint in the guestbook_add.php file (Step 7)
 // and the examples in Part 1, Step 2: Dynamic Select Boxes, 9.
 
-
+$field_name = "id";
 
 // 9. Assign "username" to $field_name2 .
 
-
+$field_name2 = "username";
 
 // 10. Assign "comment" to $field_name3 .
 
-
+$field_name3 = "comment";
 
 /* 11. Call the multi_select_box function. Pass the following 4 variables: $field_name1, $field_name2, $field_name3, 
 and $result. Assign the returned value of the function to $list. 
 HINT: See Part 1, Step 2: Dynamic Select Boxes, 9. This should be only one line of code, starting with $list. */
 
-
+$list = multi_select_box($field_name, $field_name2, $field_name3, $result);
 
 // 12. RUN the page. You should see your three statements saying that the connection succeeded, the SQL statement, and that the Query succeeded.
 // Below that you should see the multi-select box. SELECT a record, then click Submit. The page should submit to guestbook_delete_action.php .

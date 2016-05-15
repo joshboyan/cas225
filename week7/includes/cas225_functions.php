@@ -20,9 +20,9 @@ I HAVE A SPECIFIC SERIES OF STEPS I WOULD LIKE YOU TO FOLLOW.
 // 1. Update the Header information below (all 3 lines).
 
 /*
-File Name: XXXXX.XXX
-Date: XX/XX/XX
-Programmer: XXX XXX
+File Name: cas225functions.php
+Date: 5/14/16
+Programmer: Josh Boyan
 */
 
 // 2. Copy the select_box() function below this comment.
@@ -30,27 +30,49 @@ Programmer: XXX XXX
 
 // See Part 1, Step 2: Dynamic Select Boxes, #5 for an explanation.
 
+function select_box($field_name, $table_name, $result){
 
+    // Note: \n is a newline character, added so you can see line breaks when you do View, Source.
 
+    $options="\n<select name='$field_name'>\n<option value=''>Select username</option>";
 
+    while($rows = $result->fetch(PDO::FETCH_ASSOC)) {
 
+        $name=$rows["username"];
 
+        $options.="\n<option value='$name'>".$name."</option>";
+    }
 
+    $options.= "\n</select>\n";
+    return "$options";
+
+}
 
 // 3. Copy the multi_select_box function below this comment. 
 // You can find this function at: http://oak.pcc.edu/cas225/week7/multiselectbox.txt
 
 // See Part 1, Step 2: Dynamic Select Boxes, #5 for an explanation.
 
+function multi_select_box($field_name1, $field_name2, $field_name3, $result){
 
+    // Note: \n is a newline character, added so you can see line breaks when you do View, Source.
 
+    $options="\n<select name='$field_name1'>\n<option value=''>Select a record</option>";
 
+    while($rows = $result->fetch(PDO::FETCH_ASSOC)) {
 
+        $id=$rows["id"];
+        $name=$rows["username"];
+        $comment=$rows["comment"];
 
+        $options.="\n<option value=" . $id . ">" . $id . " | " . $name . " | " . $comment . "</option>";
 
+    }
 
+    $options.= "\n</select>\n";
+    return "$options";
 
-
+}
 
 function check_submitted($field_name, $field_type, &$missing_count) {
 

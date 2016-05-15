@@ -28,9 +28,9 @@ Fatal error: Call to a member function fetch() on string in ... on line ... */
 // 1. Update the Header information below (all 3 lines).
 
 /*
-File Name: XXXXX.XXX
-Date: XX/XX/XX
-Programmer: XXX XXX
+File Name: guestbook_view.php
+Date: 5/2/16
+Programmer: Josh Boyan
 */
 
 // ==========================================================
@@ -40,7 +40,7 @@ include_once "includes/php_header.php";
 
 // 2. Change $programmer_name to your name.
 
-$programmer_name = "Ron Bekey";
+$programmer_name = "Josh Boyan";
 $heading = "View Guestbook";
 $result = "";
 
@@ -79,7 +79,7 @@ echo "<h1>" . $heading . "</h1>";
 // 3. Insert an include for connection.php, using include_once.
 //    Remember that it is in the "includes" subfolder.
 //    See Assignment 5 or the other includes above if you need a reminder on how to do this.
-
+include_once "includes/connection.php";
 
 
 //    Run the file. If you did the code above correctly, you should see:
@@ -93,7 +93,9 @@ echo "<h1>" . $heading . "</h1>";
    HINTS: The code should be on 3 lines. See 'Step 2: Perform Database Query', c, i. SELECT EXAMPLES  
    in Part 1 of this assignment for the required format. You will need to change the field names. */
 
-
+$sql = "SELECT *"
+    . " FROM guestbook"
+    . " ORDER BY guestbook.id;";
 
 
    
@@ -104,9 +106,9 @@ echo "<h1>" . $heading . "</h1>";
 //     2. SQL: SELECT * FROM guestbook ORDER BY guestbook.id;
 //     Note: You will still see the "Fatal Error..." message until you complete Step 5.
      
- // echo "<br>2. SQL: " . $sql . "<br>";
-     
-// RUN QUERY
+echo "<br>2. SQL: " . $sql . "<br>";
+
+//RUN QUERY
      
 // 6. Enter a statement here that runs the $sql query and assigns it to $result. 
 //    Use a try...catch block to catch any errors and report how many rows are returned
@@ -114,7 +116,14 @@ echo "<h1>" . $heading . "</h1>";
 //    HINT: See 'Step 2, d. Running the Query' in Part 1 for the code I would like you to use.
 //    There should be 8 lines of code, including the comment at the top and the curly braces.
 
-
+//Run a query
+try {
+    $result = $connection->query($sql);
+    echo "3. Query suceeded! " . $result->rowCount() . " rows returned.<br>";
+}
+catch (PDOException $e) {
+    die("3. Query failed! " . $e->getMessage());
+}
 
 
 
@@ -155,8 +164,11 @@ while($rows = $result->fetch(PDO::FETCH_ASSOC)) {
      
      echo "<td>" . $rows['id'] . "</td>";  // *I did this one for you. You can pattern the next three after this one.
 
-     
-     
+    echo "<td>" . $rows['username'] . "</td>";
+
+    echo "<td>" . $rows['comment'] . "</td>";
+
+    echo "<td>" . $rows['datetime'] . "</td>";
      
      echo "</tr>";
 }

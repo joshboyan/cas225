@@ -20,9 +20,9 @@ I HAVE A SPECIFIC SERIES OF STEPS I WOULD LIKE YOU TO FOLLOW.
 // 1. Update the Header information below (all 3 lines).
 
 /*
-File Name: XXXXX.XXX
-Date: XX/XX/XX
-Programmer: XXX XXX
+File Name: footer.php
+Date: 5/2/16
+Programmer: Joshua Boyan
 */
 
 // 2. Enter code to close the connection, inside of an if/else statement that checks if the connection is
@@ -30,12 +30,13 @@ Programmer: XXX XXX
 //    HINT: See Part 1 of the assignment, Step 5: Close connection for the code I want you to use. There should
 //    be 7 lines of code (including the curly braces).
 
-
-
-
-
-
-
+if(isset($connection)) {
+    $connection = null;
+    echo "<p>4. Database connection closed!";
+}
+else{
+    echo "<b4>4. No database connection to close.";
+}
 
 ?>
 

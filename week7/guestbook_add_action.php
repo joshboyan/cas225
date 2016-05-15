@@ -22,9 +22,9 @@ I HAVE A SPECIFIC SERIES OF STEPS I WOULD LIKE YOU TO FOLLOW.
 // 1. Update the Header information below (all 3 lines).
 
 /*
-File Name: XXXXX.XXX
-Date: XX/XX/XX
-Programmer: XXX XXX
+File Name: guestbook_add_action.php
+Date: 5/2/16
+Programmer: Josh Boyan
 */
 
 // ==========================================================
@@ -34,7 +34,7 @@ include_once "includes/php_header.php";
 
 // 2. Change $programmer_name to your name.
 
-$programmer_name = "Ron Bekey";
+$programmer_name = "Josh Boyan";
 $heading = "Guest Book Add Action Page";
 
 // ==========================================================
@@ -75,8 +75,8 @@ echo "<h1>" . $heading . "</h1>";
 //    Array ( [username] => ______ [comment] => ___________ [Submit] => Submit ) 
 //    Put comment tags // in front of the 2 lines below when you have the rest of the page working.
 
-print_r($_POST);
-echo "<br><br>";
+//print_r($_POST);
+//echo "<br><br>";
 
 // 4. LOOK CAREFULLY at the code below. It is the same code we used in Assignment 4, but I put it in a loop so it would be shorter.
 // The statement $form_fields as $key => value loops through the list of form fields in the $form_fields array, and pulls out the key
@@ -87,7 +87,6 @@ foreach ($form_fields as $key => $value) { // Loop through form fields. Key is t
      check_submitted($key, $value, $missing_count);
 
      sanitize($key, $value, $_POST[$key]); // ESPECIALLY IMPORTANT NOW THAT WE ARE INSERTING INTO A DATABASE
-     
 }
 
 // exit if missing data in any but checkboxes
@@ -107,7 +106,7 @@ $comment = $_POST["comment"];
 
 // 5. Insert an include for connection.php, using include_once.
 
-
+include_once "includes/connection.php";
 
 // SQL STATEMENT
 
@@ -119,7 +118,8 @@ with 2 fields to be inserted.
 BE CAREFUL with quote marks -- any quotes inside an SQL statement must be single quotes, and quote marks
 are used only in the VALUES section of the query. */
 
-
+$sql = "INSERT INTO guestbook(username, comment)"
+    . " VALUES('$username', '$comment');";
 
      
 // Display SQL for learning and trouble-shooting
@@ -134,8 +134,13 @@ echo "<br>2. SQL: " . $sql . "<br>";
 //    HINT: See 'Step 2, d. Running the Query' in Part 1 for the code I would like you to use.
 //    There should be 8 lines of code, including the comment at the top and the curly braces.
 
-
-
+try {
+     $result = $connection->query($sql);
+     echo "3. Query succeeded! The new record was added.<br>";
+}
+catch (PDOException $e) {
+     die("3. Query failed! " . $e->getMessage());
+}
 
 
 
