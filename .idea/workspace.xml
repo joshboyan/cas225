@@ -3,13 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e7cad3ba-a40e-41ba-89cb-7b59c642e3f6" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/week7/guestbook_add.php" afterPath="$PROJECT_DIR$/week7/guestbook_add.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/week7/guestbook_add_action.php" afterPath="$PROJECT_DIR$/week7/guestbook_add_action.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/week7/guestbook_delete.php" afterPath="$PROJECT_DIR$/week7/guestbook_delete.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/week7/guestbook_delete_action.php" afterPath="$PROJECT_DIR$/week7/guestbook_delete_action.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/week7/guestbook_view.php" afterPath="$PROJECT_DIR$/week7/guestbook_view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/week7/includes/cas225_functions.php" afterPath="$PROJECT_DIR$/week7/includes/cas225_functions.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/week7/includes/footer.php" afterPath="$PROJECT_DIR$/week7/includes/footer.php" />
     </list>
     <ignored path="cas225.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,7 +30,7 @@
     <favorites_list name="cas225" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="guestbook_delete_action.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/week7/guestbook_delete_action.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -54,7 +47,7 @@
       <file leaf-file-name="guestbook_add.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/week7/guestbook_add.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="447">
+            <state relative-caret-position="1746">
               <caret line="97" column="74" selection-start-line="97" selection-start-column="30" selection-end-line="97" selection-end-column="77" />
               <folding />
             </state>
@@ -64,7 +57,7 @@
       <file leaf-file-name="guestbook_add_action.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/week7/guestbook_add_action.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="488">
+            <state relative-caret-position="2502">
               <caret line="139" column="1" selection-start-line="136" selection-start-column="0" selection-end-line="142" selection-end-column="1" />
               <folding>
                 <marker date="1463286799079" expanded="true" signature="4373:4413" placeholder="INSERT INTO guestbook... " />
@@ -117,8 +110,8 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="2844" />
     <option name="y" value="24" />
-    <option name="width" value="976" />
-    <option name="height" value="1056" />
+    <option name="width" value="966" />
+    <option name="height" value="1084" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -173,32 +166,14 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="week7" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cas225" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cas225" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="week7" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="includes" />
+              <option name="myItemId" value="week8" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -269,24 +244,25 @@
       <workItem from="1461858920694" duration="36000" />
       <workItem from="1462244014035" duration="3871000" />
       <workItem from="1462317052041" duration="18000" />
-      <workItem from="1463248369489" duration="9368000" />
+      <workItem from="1463248369489" duration="9450000" />
+      <workItem from="1464286823228" duration="8000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29397000" />
+    <option name="totallyTimeSpent" value="29487000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="2844" y="24" width="976" height="1056" extended-state="4" />
-    <editor active="true" />
+    <frame x="2844" y="24" width="966" height="1084" extended-state="4" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2376344" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24347825" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32964602" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2027897" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20208333" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -315,6 +291,37 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/week7/guestbook_delete_action.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1463287631539" expanded="true" signature="6212:6222" placeholder="..." />
+            <marker date="1463287631539" expanded="true" signature="10200:10210" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week7/guestbook_add.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1746">
+          <caret line="97" column="74" selection-start-line="97" selection-start-column="30" selection-end-line="97" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week7/guestbook_add_action.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2502">
+          <caret line="139" column="1" selection-start-line="136" selection-start-column="0" selection-end-line="142" selection-end-column="1" />
+          <folding>
+            <marker date="1463286799079" expanded="true" signature="4373:4413" placeholder="INSERT INTO guestbook... " />
+            <marker date="1463286799079" expanded="true" signature="4373:4454" placeholder="INSERT INTO guestbook... " />
+            <marker date="1463286799079" expanded="true" signature="4373:4456" placeholder="INSERT INTO guestbook... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/week4/guestbook_add_action.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -467,7 +474,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
           <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -483,7 +489,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -491,7 +496,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -507,7 +511,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1874">
           <caret line="162" column="18" selection-start-line="162" selection-start-column="18" selection-end-line="162" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -515,13 +518,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="591">
           <caret line="132" column="25" selection-start-line="132" selection-start-column="25" selection-end-line="132" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/week7/guestbook_add_action.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="488">
+        <state relative-caret-position="2502">
           <caret line="139" column="1" selection-start-line="136" selection-start-column="0" selection-end-line="142" selection-end-column="1" />
           <folding>
             <marker date="1463286799079" expanded="true" signature="4373:4413" placeholder="INSERT INTO guestbook... " />
@@ -533,7 +535,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/week7/guestbook_add.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="447">
+        <state relative-caret-position="1746">
           <caret line="97" column="74" selection-start-line="97" selection-start-column="30" selection-end-line="97" selection-end-column="77" />
           <folding />
         </state>
