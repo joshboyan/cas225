@@ -20,7 +20,7 @@ I HAVE A SPECIFIC SERIES OF STEPS I WOULD LIKE YOU TO FOLLOW.
 /* 1. Enter the code to start a session below. This should be one line of code (see Part 1, Step 2).
       Note: This line is used for testing. It will need to be commented out // after you create the logout.php page or the logout will not work. */
 
-
+session_start();
 
 // WARNING: DO NOT use login_check on this page. This page needs to run *before* a person is logged in.
 
@@ -29,20 +29,20 @@ I HAVE A SPECIFIC SERIES OF STEPS I WOULD LIKE YOU TO FOLLOW.
 // 2. Update the Header information below (all 3 lines).
 
 /*
-File Name: XXXXX.XXX
-Date: XX/XX/XX
-Programmer: XXX XXX
+File Name: login.php
+Date: 5/2/16
+Programmer: Josh Boyan
 */
 
 // VARIABLES
 
 // 3 and 4. Insert your php_header.php include file here. Use include_once, and remember the file is in the 'includes' subfolder.
 
-
+include_once "includes/php_header.php";
 
 // 5. Assign "Login Form" to $heading.
 
-
+$heading = "Login Form";
 
 ?>
 
@@ -53,7 +53,7 @@ Programmer: XXX XXX
 
 // 6. Insert your html_header.php include file here. Use include_once, and remember the file is in the 'includes' subfolder.
 
-
+include_once "includes/html_header.php";
 
 ?>
 
@@ -69,31 +69,31 @@ Programmer: XXX XXX
 /* 7. The 5 lines below are used for testing your page without the form. When you get to the step where you are 
       testing the form, put comment tags // in front of these 5 lines so they will not run. */
 
-$_SESSION["loggedin"] = true;
+/* $_SESSION["loggedin"] = true;
 $_SESSION["username"] = "student";
 $_SESSION["permissions"] = "admin";
 echo "Session variables set!";
-exit;
+exit; */
 
 /* 8. The "Successfully logged out" message will go before the ending PHP tag below. It will be 3 lines of code. 
       Please DO NOT ENTER CODE HERE until you reach the place in Assignment 8 Part 2 where I ask you to 
       create it. */
 
-
-
-
+if(isset($_GET["logout"]) && $_GET["logout"]==1){
+    echo "<em>Successfully logged out.</em>";
+}
 
 ?>
 
 <!-- 9. Add 'method' and 'action' attributes to the form tag below. This page submits to "login2.php". -->
 
-<form style="text-align:center;" id="form1">
+<form style="text-align:center;" method= "post" action= "login2.php" id="form1">
 
 <p>Username: <input type="text" name="username"></p>
 
 <!-- 10. Add a 'type' attribute to the input tag below and set it to "password". -->
 
-<p>Password: <input name="password"></p>
+<p>Password: <input type="password" name="password"></p>
 
 <input type="submit" value="Log in"><br />
 
@@ -110,6 +110,6 @@ exit;
 
 // 11. Insert your footer.php include file here. Use include_once, and remember the file is in the 'includes' subfolder.
 
-
+include_once "includes/footer.php";
 
 ?>

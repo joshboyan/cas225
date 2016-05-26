@@ -22,41 +22,41 @@ I HAVE A SPECIFIC SERIES OF STEPS I WOULD LIKE YOU TO FOLLOW.
 
 // 1. Enter the code to start a session below. This should be one line of code.
 
-
+session_start();
 
 // 2. Update the Header information below (all 3 lines).
 
 // HEADER
 
 /*
-File Name: XXXXX.XXX
-Date: XX/XX/XX
-Programmer: XXX XXX
+File Name: logout.php
+Date: 5/25/16
+Programmer: Josh Boyan
 */
 
 // 3. Enter one line of code below to unset all the session variables. Please use the code shown in Part 1 (Step 3 #4).
 
-
+$_SESSION = array();
 
 /* 4. Enter the code to destroy the session cookie. There should be 3 lines of code, including the closing
       curly brace (one line of code inside the 'if' block). Please use the code shown in Part 1. */
-	        
 
-
-
+if(isset($_COOKIE[session_name()])){
+    setcookie(session_name(), "", time() - 42000, "/");
+}
 
 // 5. Enter one line of code to destroy the session. Please use the code shown in Part 1.
 
-
+session_destroy();
       
 // Temporary line of code for testing. Comment out this line with // after everything else on this page is working.
 
-echo "Ready to forward back to login page...";
+//echo "Ready to forward back to login page...";
 
 /* 6. Please DO NOT enter code in this step until the instructions tell you to. Enter one line of code that returns to the login.php page and sends a URL variable 
-      named 'logout' with a value of 1 (one). Please use the code shown in Part 1 (Step 3 #4b). */ 
+      named 'logout' with a value of 1 (one). Please use the code shown in Part 1 (Step 3 #4b). */
 
-
+header("Location: login.php?logout=1");
 	
 /* 7. OPEN your login.php page, and FIND the section labeled '8. The "Successfully logged out" message will go between the php tags below...'. 
    Inside that section, insert an 'if' block that checks to see if the "logout" session variable is set *and* that its value is 1 (one). Please use the

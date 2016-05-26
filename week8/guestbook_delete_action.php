@@ -19,20 +19,20 @@ I HAVE A SPECIFIC SERIES OF STEPS I WOULD LIKE YOU TO FOLLOW.
 
 // 1. Enter the code to start a session below. This should be one line of code.
 
-
+session_start();
 
 // 2. Enter the code to insert the login_check.php file here. Use include_once and DO NOT put a folder name in front.
 
-
+include_once "login_check.php";
 
 // HEADER
 
 // 3 and 4. Update the Header information below (all 3 lines).
 
 /*
-File Name: XXXXX.XXX
-Date: XX/XX/XX
-Programmer: XXX XXX
+File Name: guestbook_delete_action.php
+Date: 5/25/16
+Programmer: Josh Boyan
 */
 
 // ==========================================================

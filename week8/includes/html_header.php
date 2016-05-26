@@ -21,9 +21,9 @@ I HAVE A SPECIFIC SERIES OF STEPS I WOULD LIKE YOU TO FOLLOW.
 // NOTE: There are 2 more steps below this one. They are indented a bit from the left side of the page. 
 
 /*
-File Name: XXXXX.XXX
-Date: XX/XX/XX
-Programmer: XXX XXX
+File Name: html_header.php
+Date: 5/25/16
+Programmer: Josh Boyan
 */
 
 ?>
@@ -58,7 +58,7 @@ if ((strpos($file_name, "login") == false) && isset($_SESSION["loggedin"])){
      /* 2. REPLACE the first line of code below with the code that shows the actual username and permissions, using
      variable substitution. Use the code shown in Part 1 of the assignment (Step 4 #3). */
 	
-    echo "Logged in as: <b>(no login code yet)</b>";
+    echo "Logged in as: <b> {$_SESSION["username"]} ({$_SESSION["permissions"]})</b>";
 	
 	echo "<p>";
 	
@@ -67,18 +67,21 @@ if ((strpos($file_name, "login") == false) && isset($_SESSION["loggedin"])){
 	
 	echo "<a href= '{$link_1_page}'> {$link_1_text} </a> | "; 
 	echo "<a href= '{$link_2_page}'> {$link_2_text} </a> | "; 
-	echo "<a href= '{$link_3_page}'> {$link_3_text} </a> | "; 
+	echo "<a href= '{$link_3_page}'> {$link_3_text} </a> | ";
+	echo "<a href= '{$link_5_page}'> {$link_5_text} </a> ";
+
 	
 	/* 3. REPLACE the first line of code below with an 'if' block below that displays the link to the 4th page *only* if the user 
 	      has "admin" permissions. Use the code shown in Part 1 of the assignment (Step 4 #6). */
+
+	if($_SESSION["permissions"]=="admin") {
+
+		echo "| <a href= '{$link_4_page}'> {$link_4_text} </a> ";
 	
-	echo "<a href= '{$link_4_page}'> {$link_4_text} </a> | "; 
+		echo "</p>";
 	
-	echo "<a href= '{$link_5_page}'> {$link_5_text} </a>"; 
-	
-	echo "</p>";
-	
-	echo "</div>";
+		echo "</div>";
+	}
 	
 }
 

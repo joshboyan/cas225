@@ -22,9 +22,9 @@ I HAVE A SPECIFIC SERIES OF STEPS I WOULD LIKE YOU TO FOLLOW.
 // HEADER
 
 /*
-File Name: XXXXX.XXX
-Date: XX/XX/XX
-Programmer: XXX XXX
+File Name: login_check.php
+Date: 5/25/16
+Programmer: Josh Boyan
 */
 
 // ==========================================================
@@ -34,14 +34,14 @@ $heading = ""; // no heading on this page, but we need to set a default value so
 
 // 2. Insert your php_header.php include file here. Use include_once, and remember that this file is in the 'includes' subfolder.
 
-
+include_once "includes/php_header.php";
 
 // =======================================
 // -- HTML HEADER -->
 
 // 3. Insert your html_header.php include file here. Use include_once, and remember that this file is in the 'includes' subfolder.
 
-
+include_once "includes/html_header.php";
 // ======================================
 
 /* Check if a person is not logged in, or if the "loggedin" variable is set, but not set to true (can happen if a person
@@ -55,16 +55,18 @@ quote marks around the word *true* (it is a Boolean value). */
 
      /* 5. Display a message that a person needs to log in before they can access the content, and a link to the login page.
      This is only one line of code. Use the format shown in Part 1 (Step 3 #3) of the assignment. */
-     
-     
-     
-     // 6. Insert a line of code that exits the page (only one word is required).
-        
 
+if(!isset($_SESSION['loggedin']) || $_SESSION["loggedin"] != true) {
+
+    echo "<p id='login'>You need to <a href='login.php'>log in</a> before you can access this content.</p>";
+
+// 6. Insert a line of code that exits the page (only one word is required).
+
+exit;
      
 // 7. Enter a closing curly brace below, to close the 'if' block that you started in Step 4 above.
 
-
+}
 
 /* 8. After you complete this page, you will need to be sure this file is included in every one of the pages in the 'week8' 
       folder EXCEPT login.php and login2.php (those pages won't work if people have to be logged in first). 

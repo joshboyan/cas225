@@ -19,16 +19,16 @@ I HAVE A SPECIFIC SERIES OF STEPS I WOULD LIKE YOU TO FOLLOW.
 
 // 1. Enter the code to start a session below. This should be one line of code.
 
-
+session_start();
 
 // HEADER
 
 // 2. Update the Header information below (all 3 lines).
 
 /*
-File Name: XXXXX.XXX
-Date: XX/XX/XX
-Programmer: XXX XXX
+File Name: login2.php
+Date: 5/25/16
+Programmer: Josh Boyan
 */
 
 // VARIABLES
@@ -39,14 +39,13 @@ $missing_count = 0;
 This should be 2 lines of code, one for each variable. HINT: See the guestbook_add_action.php or guestbook_delete_action.php files 
 under the heading // ASSIGN DATA TO VARIABLES FOR EASIER HANDLING for similar code. */
 
-
-
+$username=$_POST["username"];
+$password=$_POST["password"];
 
 /* 4. Insert a line of code to encrypt the password in $password, and assign it to a variable named $hashed_password. 
    Use the sha1() function, as described in Part 1 of the assignment (Step 3, #2). */
    
-   
-
+$hashed_password=sha1($password);
 
 // ==========================================================
 // FUNCTIONS
@@ -54,7 +53,7 @@ under the heading // ASSIGN DATA TO VARIABLES FOR EASIER HANDLING for similar co
 /* 5. Write code to insert your cas225_functions.php include file here. Use include_once, and remember that this file is in the 
 'includes' folder. */
 
-
+include_once "includes/cas225_functions.php";
 
 // ====================================== 
 // CODE FOR THIS PAGE
@@ -87,7 +86,7 @@ if($missing_count > 0) {
 
 // 6. Insert your connection.php include file here. Use include_once, and remember that this file is in the 'includes' folder.
 
-
+include_once "includes/connection.php";
 
 // SQL STATEMENT
 
@@ -96,12 +95,12 @@ if($missing_count > 0) {
       format that we used last week, which is required in this class. This will be 5 lines of code.
       For a similar SQL statement, see Part 1 of this assignment (Step 3, #2). */
    
+$sql = "SELECT username, permissions "
+    . "FROM users "
+    . "WHERE username = '$username' "
+    . "AND password = '$hashed_password' "
+    . "LIMIT 1;";
 
-
-
-
-
-     
 // Display SQL for learning and trouble-shooting
 
 echo "<br>3. SQL: " . $sql . "<br>";
@@ -120,13 +119,13 @@ echo "<br>3. SQL: " . $sql . "<br>";
 //    HINT: See the guestbook_view.php file or the code examples in Assignment 7 Part 1 for the code I would like you to use.
 //    There should be 8 lines of code, including the comment at the top and the curly braces.
       
-
-
-
-
-
-
-
+try {
+     $result = $connection->query($sql);
+     echo "3. Query succeeded! " . $result->rowCount() . " rows returned.<br>";
+}
+catch (PDOException $e) {
+     die("3. Query failed! " . $e->getMessage());
+}
 
 // =====================================================
 // If we got to here the query ran, and we need to see if we should log them in or not
@@ -138,39 +137,41 @@ echo "<br>3. SQL: " . $sql . "<br>";
        NOTE: The ending curly brace has already been created for you below (see // end if). The next 2 lines of code must be placed
        INSIDE of the 'if' block, BEFORE the closing curly brace. */
          
-
+if($result->rowCount()==1) {
 
      /* 10. Enter a line of code that creates an associative array named $found_user from the $result object.
         BE CAREFUL! This code must be place INSIDE the 'if' block, BEFORE the closing curly brace. This is shown in blue in Part 1. */
-        
 
-	
-	/* 11. Set 3 session variables for use on all pages. this should be 3 lines of code, as shown in green in Part 1. 
-	       Assign the following values to the $_SESSION array elements: 
-              true to $_SESSION["loggedin"] (do not put quote marks around true - it is a Boolean value)
-              $found_user["username"] to $_SESSION["username"]
-              $found_user["permissions"] to $_SESSION["permissions"]
-                BE CAREFUL! This code must be entered BEFORE the closing curly brace for the 'if' block. */
+     $found_user = $result->fetch(PDO::FETCH_ASSOC);
 
+     /* 11. Set 3 session variables for use on all pages. this should be 3 lines of code, as shown in green in Part 1.
+            Assign the following values to the $_SESSION array elements:
+               true to $_SESSION["loggedin"] (do not put quote marks around true - it is a Boolean value)
+               $found_user["username"] to $_SESSION["username"]
+               $found_user["permissions"] to $_SESSION["permissions"]
+                 BE CAREFUL! This code must be entered BEFORE the closing curly brace for the 'if' block. */
+     $_SESSION["loggedin"] = true;
+     $_SESSION["username"] = $found_user["username"];
+     $_SESSION["permissions"] = $found_user["permissions"];
 
-
-     
      /* 12. Forwarding code will go here. PLEASE DO NOT ENTER ANY ADDITIONAL CODE until you get to this part in the 
      instructions for Assignment 8 Part 2. */
-     
-   // echo "<strong>Ready to forward to the home page!</strong>";
+
+     // echo "<strong>Ready to forward to the home page!</strong>";
+
+     header("Location: home.php");
 
 
-    // 13. Enter the closing curly brace for the 'if' block below (before the //).
- // end if
-
+     // 13. Enter the closing curly brace for the 'if' block below (before the //).
+     // end if
+}
      /* 14. Create an 'else' block here that tells the user that they entered the wrong username or password. Give them a link back 
-     to the logoin.php page. Model your code after that shown in Part 1 (in black, under login2.php). There should be 3 lines of code,
+     to the login.php page. Model your code after that shown in Part 1 (in black, under login2.php). There should be 3 lines of code,
      including the curly braces. */
 
-
-
-
+else {
+     echo "<p class='red' id='login'>Wrong username or password! Please <a href='login.php'>Go Back</a> and try again.</p>";
+}
 
 //==============
 // FOOTER

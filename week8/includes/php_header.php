@@ -20,9 +20,9 @@ I HAVE A SPECIFIC SERIES OF STEPS I WOULD LIKE YOU TO FOLLOW.
 // 1. Update the Header information below (all 3 lines).
 
 /*
-File Name: XXXXX.XXX
-Date: XX/XX/XX
-Programmer: XXX XXX
+File Name: php_header.php
+Date: 5/26/16
+Programmer: Josh Boyan
 */
 
 $image_path = "images";
@@ -39,10 +39,12 @@ $link_3_page = "guestbook_add.php";
 $link_3_text = "Guestbook: Add";
 $link_4_page = "guestbook_delete.php";
 $link_4_text = "Guestbook: Delete";
+$link_5_page = "logout.php";
+$link_5_text = "Log Out";
 
 // 2. Change the programmer name to your name.
 
-$programmer_name = "Ron Bekey";
+$programmer_name = "Josh Boyan";
 
 /* 3. Add 2 more lines patterned after the lines above, for a 5th link. The page name will be "logout.php" and
    the text will be "Log Out". Be sure to update the number to 5 on each line. */

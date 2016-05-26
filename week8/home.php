@@ -19,10 +19,11 @@ I HAVE A SPECIFIC SERIES OF STEPS I WOULD LIKE YOU TO FOLLOW.
 
 // 1. Enter the code to start a session below. This should be one line of code.
 
-
+session_start();
 
 // 2. Enter the code to insert the login_check.php file here. Use include_once and DO NOT put a folder name in front.
 
+include_once "login_check.php";
 
 
 // HEADER
@@ -30,9 +31,9 @@ I HAVE A SPECIFIC SERIES OF STEPS I WOULD LIKE YOU TO FOLLOW.
 // 3. Update the Header information below (all 3 lines).
 
 /*
-File Name: XXXXX.XXX
-Date: XX/XX/XX
-Programmer: XXX XXX
+File Name: home.php
+Date: 5/25/16
+Programmer: Josh Boyan
 */
 
 // ==========================================================
@@ -43,7 +44,7 @@ include_once "includes/php_header.php";
 // 4. Change $home_image_name to the name of your image.
 //    Remember to copy your image into the 'images' subfolder.
 
-$home_image_name = "car.jpg";
+$home_image_name = "cat.jpg";
 $heading = "CAS 225: PHP and MySQL for Designers";
 
 // ====================================== 
